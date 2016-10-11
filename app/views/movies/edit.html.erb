@@ -1,2 +1,15 @@
-<h1>Movies#edit</h1>
-<p>Find me in app/views/movies/edit.html.erb</p>
+<h1>Edit This Movie</h1>
+
+<%= form_for @movie, as: :movie, url: movie_path do |f| %>
+
+<%= f.label :title %>
+<%= f.text_field :title %>
+
+<%= f.label :director %>
+<%= f.text_field :director %>
+
+<%= f.label :description %>
+<%= f.text_area :description %>
+
+<%= f.submit %>
+<% end %>

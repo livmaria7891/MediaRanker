@@ -27,6 +27,13 @@ class MoviesController < ApplicationController
   end
 
   def update
+    @params = params
+    @movie = Movie.find(params[:id].to_i)
+    @movie.title = params[:movie][:title]
+    @movie.director = params[:movie][:director]
+    @movie.description = params[:movie][:description]
+    @movie.save
+    redirect_to action: 'show'
   end
 
   def upvote
