@@ -27,6 +27,13 @@ class AlbumsController < ApplicationController
   end
 
   def update
+    @album = Album.find(params[:id].to_i)
+    @params = params
+    @album.title = params[:album][:title]
+    @album.artist = params[:album][:artist]
+    @album.description = params[:album][:description]
+    @album.save
+    redirect_to action: 'show'
   end
 
   def destroy
