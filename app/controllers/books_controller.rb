@@ -27,6 +27,12 @@ class BooksController < ApplicationController
   end
 
   def update
+    @book = Book.find(params[:id].to_i)
+    @book.title = params[:book][:title]
+    @book.author = params[:book][:author]
+    @book.description = params[:book][:description]
+    @book.save
+    redirect_to action: 'show'
   end
 
   def destroy
