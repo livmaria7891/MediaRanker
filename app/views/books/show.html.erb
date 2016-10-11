@@ -1,2 +1,9 @@
-<h1>Books#show</h1>
-<p>Find me in app/views/books/show.html.erb</p>
+<h1>Title: <%= @book.title %></h1>
+<h4>Author: <%= @book.author %></h4>
+<h4>Description: <%= @book.description %></h4>
+<h4>Rank: <%= @book.rank %></h4>
+
+<%= button_to "Edit", {action: "edit", id: @book[:id] }, method: :get %>
+<%= button_to "Delete Book", {action: "destroy", id: @book[:id] }, method: :delete, data: { confirm: "Are you sure?"} %>
+<%= button_to("View All Books", books_path, :method => :get) %>
+<%= button_to("View All Media", medias_index_path, :method => :get) %>
