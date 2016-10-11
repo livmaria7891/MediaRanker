@@ -1,2 +1,11 @@
-<h1>Albums#index</h1>
-<p>Find me in app/views/albums/index.html.erb</p>
+<h1>All Albums</h1>
+
+<% @album.each do |album| %>
+  <%= album.rank %>
+  <%= link_to(album.title, album_path(album[:id])) %></br>
+  <%= button_to("Upvote") %>
+<% end %>
+
+<%= button_to "Add an Album", {action: "new"}, method: :get %>
+
+<%= button_to("View All Media", medias_index_path, :method => :get) %>

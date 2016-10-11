@@ -1,2 +1,11 @@
-<h1>Books#index</h1>
-<p>Find me in app/views/books/index.html.erb</p>
+<h1>All Books</h1>
+
+<% @book.each do |book| %>
+  <%= book.rank %>
+  <%= link_to(book.title, book_path(book[:id])) %></br>
+  <%= button_to("Upvote") %>
+<% end %>
+
+<%= button_to "Add a Book", {action: "new"}, method: :get %>
+
+<%= button_to("View All Media", medias_index_path, :method => :get) %>

@@ -1,2 +1,9 @@
-<h1>Movies#show</h1>
-<p>Find me in app/views/movies/show.html.erb</p>
+<h1>Title: <%= @movie.title %></h1>
+<h4>Director: <%= @movie.director %></h4>
+<h4>Description: <%= @movie.description %></h4>
+<h4>Rank: <%= @movie.rank %></h4>
+
+<%= button_to "Edit", {action: "edit", id: @movie[:id] }, method: :get %>
+<%= button_to "Delete Movie", {action: "destroy", id: @movie[:id] }, method: :delete, data: { confirm: "Are you sure?"} %>
+<%= button_to("View All Movies", movies_path, :method => :get) %>
+<%= button_to("View All Media", medias_index_path, :method => :get) %>
