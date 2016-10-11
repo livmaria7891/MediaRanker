@@ -4,6 +4,7 @@ class AlbumsController < ApplicationController
   end
 
   def show
+    @album = Album.find(params[:id].to_i)
   end
 
   def new
@@ -22,11 +23,16 @@ class AlbumsController < ApplicationController
   end
 
   def edit
+    @album = Album.find(params[:id].to_i)
   end
 
   def update
   end
 
   def destroy
+    @album = Album.find(params[:id].to_i)
+    @album.destroy
+
+    redirect_to albums_path
   end
 end

@@ -1,2 +1,9 @@
-<h1>Albums#show</h1>
-<p>Find me in app/views/albums/show.html.erb</p>
+<h1>Title: <%= @album.title %></h1>
+<h4>Artist: <%= @album.artist %></h4>
+<h4>Description: <%= @album.description %></h4>
+<h4>Rank: <%= @album.rank %></h4>
+
+<%= button_to "Edit", {action: "edit", id: @album[:id] }, method: :get %>
+<%= button_to "Delete Album", {action: "destroy", id: @album[:id] }, method: :delete, data: { confirm: "Are you sure?"} %>
+<%= button_to("View All Albums", albums_path, :method => :get) %>
+<%= button_to("View All Media", medias_index_path, :method => :get) %>
