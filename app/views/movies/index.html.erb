@@ -1,2 +1,8 @@
-<h1>Movies#index</h1>
-<p>Find me in app/views/movies/index.html.erb</p>
+<h1>All Movies</h1>
+
+<% @movie.each do |movie| %>
+  <%= movie.rank %>
+  <%= link_to(movie.title, movie_path(movie[:id])) %></br>
+<% end %>
+
+<%= button_to "Add a Movie", {action: "new"}, method: :get %>
