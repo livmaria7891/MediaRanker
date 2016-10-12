@@ -19,7 +19,7 @@ class MoviesControllerTest < ActionController::TestCase
     assert_template :new
   end
 
-  test "Creating a Movie changes number or Movies" do
+  test "Creating a Movie changes number of Books" do
     assert_difference('Movie.count', 1) do
       post_params = {movie: {title: "A nice movie"}}
       post :create, post_params
