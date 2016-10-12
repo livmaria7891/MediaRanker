@@ -3,7 +3,7 @@
 <% @movie.each do |movie| %>
   <%= movie.rank %>
   <%= link_to(movie.title, movie_path(movie[:id])) %></br>
-  <%= button_to("Upvote") %>
+  <%= button_to("Upvote", {action: "upvote", id: movie.id}, method: :patch) %>
 <% end %>
 
 <%= button_to "Add a Movie", {action: "new"}, method: :get %>

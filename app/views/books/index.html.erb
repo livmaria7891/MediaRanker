@@ -3,7 +3,8 @@
 <% @book.each do |book| %>
   <%= book.rank %>
   <%= link_to(book.title, book_path(book[:id])) %></br>
-  <%= button_to("Upvote") %>
+  <%= button_to("Upvote", {action: "upvote", id: book.id}, method: :patch) %>
+
 <% end %>
 
 <%= button_to "Add a Book", {action: "new"}, method: :get %>

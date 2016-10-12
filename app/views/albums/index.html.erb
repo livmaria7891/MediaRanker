@@ -3,7 +3,8 @@
 <% @album.each do |album| %>
   <%= album.rank %>
   <%= link_to(album.title, album_path(album[:id])) %></br>
-  <%= button_to("Upvote") %>
+  <%= button_to("Upvote", {action: "upvote", id: album.id}, method: :patch) %>
+
 <% end %>
 
 <%= button_to "Add an Album", {action: "new"}, method: :get %>

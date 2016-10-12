@@ -35,6 +35,14 @@ class BooksController < ApplicationController
     redirect_to action: 'show'
   end
 
+  def upvote
+    @book = Book.find(params[:id].to_i)
+    @book.rank += 1
+    @book.save
+
+    redirect_to books_path
+  end
+
   def destroy
     @book = Book.find(params[:id].to_i)
     @book.destroy

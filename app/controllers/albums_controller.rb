@@ -36,6 +36,14 @@ class AlbumsController < ApplicationController
     redirect_to action: 'show'
   end
 
+  def upvote
+    @album = Album.find(params[:id].to_i)
+    @album.rank += 1
+    @album.save
+
+    redirect_to albums_path
+  end
+
   def destroy
     @album = Album.find(params[:id].to_i)
     @album.destroy

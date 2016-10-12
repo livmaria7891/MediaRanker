@@ -1,19 +1,28 @@
+# Rails.application.routes.draw do
+#
+#
+#get 'medias/index'
+
 Rails.application.routes.draw do
   root :to => "medias#index"
-
   get 'medias/index'
-
-  Rails.application.routes.draw do
   resources :movies
-  end
-
-  Rails.application.routes.draw do
   resources :books
-  end
-
-  Rails.application.routes.draw do
   resources :albums
-  end
+  patch 'movies/:id/upvote' => 'movies#upvote'
+  patch 'books/:id/upvote' => 'books#upvote'
+  patch 'albums/:id/upvote' => 'albums#upvote'
+end
+
+  # Rails.application.routes.draw do
+  # resources :books
+  # end
+  #
+  # Rails.application.routes.draw do
+  # resources :albums
+  # end
+
+  #patch 'movies/:id/upvote' => 'movies#upvote'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -69,4 +78,4 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
-end
+#end
