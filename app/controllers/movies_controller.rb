@@ -41,7 +41,7 @@ class MoviesController < ApplicationController
     @movie.rank += 1
     @movie.save
 
-    redirect_to movies_path
+    redirect_to :back
   end
 
   def destroy
