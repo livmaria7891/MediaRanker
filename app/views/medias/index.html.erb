@@ -1,17 +1,17 @@
 <h2>Movies</h2>
 <% @movies.each do |movie| %>
-  <h4>Title:</h5><%= movie.title %>
+  <h4>Title:</h5><%= link_to(movie.title, movie_path(movie.id)) %>
   <h5>Rank</h5><%= movie.rank %>
   <% end %>
 
 <h2>Books</h2>
 <% @books.each do |book| %>
-  <h4>Title:</h5><%= book.title %>
+  <h4>Title:</h5><%= link_to(book.title, book_path(book.id))  %>
   <h5>Rank</h5><%= book.rank %>
   <% end %>
 
 <h2>Albums</h2>
 <% @albums.each do |album| %>
-  <h4>Title:</h5><%= album.title %>
+  <h4>Title:</h5><%= link_to(album.title, album_path(album.id))  %>
   <h5>Rank:</h5><%= album.rank %>
   <% end %>
