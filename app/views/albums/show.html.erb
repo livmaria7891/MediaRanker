@@ -3,6 +3,8 @@
 <h4>Description: <%= @album.description %></h4>
 <h4>Rank: <%= @album.rank %></h4>
 
+<%= button_to("Upvote", {action: "upvote", id: @album.id}, method: :patch) %>
+
 <%= button_to "Edit", {action: "edit", id: @album[:id] }, method: :get %>
 <%= button_to "Delete Album", {action: "destroy", id: @album[:id] }, method: :delete, data: { confirm: "Are you sure?"} %>
 <%= button_to("View All Albums", albums_path, :method => :get) %>

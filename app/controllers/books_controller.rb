@@ -40,7 +40,7 @@ class BooksController < ApplicationController
     @book.rank += 1
     @book.save
 
-    redirect_to books_path
+    redirect_to :back
   end
 
   def destroy

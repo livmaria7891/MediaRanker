@@ -3,6 +3,8 @@
 <h4>Description: <%= @movie.description %></h4>
 <h4>Rank: <%= @movie.rank %></h4>
 
+<%= button_to("Upvote", {action: "upvote", id: @movie.id}, method: :patch) %>
+
 <%= button_to "Edit", {action: "edit", id: @movie[:id] }, method: :get %>
 <%= button_to "Delete Movie", {action: "destroy", id: @movie[:id] }, method: :delete, data: { confirm: "Are you sure?"} %>
 <%= button_to("View All Movies", movies_path, :method => :get) %>

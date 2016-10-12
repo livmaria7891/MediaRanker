@@ -3,6 +3,7 @@
 <h4>Description: <%= @book.description %></h4>
 <h4>Rank: <%= @book.rank %></h4>
 
+<%= button_to("Upvote", {action: "upvote", id: @book.id}, method: :patch) %>
 <%= button_to "Edit", {action: "edit", id: @book[:id] }, method: :get %>
 <%= button_to "Delete Book", {action: "destroy", id: @book[:id] }, method: :delete, data: { confirm: "Are you sure?"} %>
 <%= button_to("View All Books", books_path, :method => :get) %>
