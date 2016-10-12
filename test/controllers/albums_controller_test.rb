@@ -4,36 +4,49 @@ class AlbumsControllerTest < ActionController::TestCase
   test "should get index" do
     get :index
     assert_response :success
+    assert_template :index
   end
 
   test "should get show" do
-    get :show
+    get :show, {id: albums(:two).id}
     assert_response :success
+    assert_template :show
   end
 
   test "should get new" do
     get :new
     assert_response :success
+    assert_template :new
   end
 
-  test "should get create" do
-    get :create
-    assert_response :success
+  test "Creating an Album changes number of Albums" do
+    assert_difference('Album.count', 1) do
+      post_params = {album: {title: "A nice album"}}
+      post :create, post_params
+    end
+    assert_response :redirect
   end
 
   test "should get edit" do
-    get :edit
+    get :edit, {id: 1}
     assert_response :success
+    assert_template :edit
   end
 
-  test "should get update" do
-    get :update
-    assert_response :success
+  test "should update existing album" do
+    patch :update, id: albums(:one).id, album: { title: "title", artist: "artists"}
+    assert_response :redirect
   end
 
-  test "should get destroy" do
-    get :destroy
-    assert_response :success
+  test "should delete book" do
+    delete :destroy, id: albums(:one).id
+    assert_response :redirect
+  end
+
+  test "delete changes number of albums" do
+    assert_difference("Album.count", -1) do
+      delete :destroy, {id: albums(:one).id}
+    end
   end
 
 end
