@@ -9,6 +9,7 @@ class MoviesController < ApplicationController
 
   def new
     @movie = Movie.new
+    @path = movies_path
   end
 
   def create
@@ -24,6 +25,7 @@ class MoviesController < ApplicationController
 
   def edit
     @movie = Movie.find(params[:id].to_i)
+    @path = movie_path
   end
 
   def update

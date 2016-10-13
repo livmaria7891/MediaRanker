@@ -19,7 +19,13 @@ class MoviesControllerTest < ActionController::TestCase
     assert_template :new
   end
 
-  test "Creating a Movie changes number of Books" do
+  test "should upvote" do
+    request.env['HTTP_REFERER'] = "where_i_came_from"
+      patch :upvote, id: movies(:two).id
+    assert_redirected_to("where_i_came_from")
+  end
+
+  test "Creating a Movie changes number of Movies" do
     assert_difference('Movie.count', 1) do
       post_params = {movie: {title: "A nice movie"}}
       post :create, post_params

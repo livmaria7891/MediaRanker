@@ -38,6 +38,12 @@ class AlbumsControllerTest < ActionController::TestCase
     assert_response :redirect
   end
 
+  test "should upvote" do
+    request.env['HTTP_REFERER'] = "where_i_came_from"
+      patch :upvote, id: movies(:two).id
+    assert_redirected_to("where_i_came_from")
+  end
+
   test "should delete book" do
     delete :destroy, id: albums(:one).id
     assert_response :redirect

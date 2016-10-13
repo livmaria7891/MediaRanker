@@ -33,6 +33,12 @@ class BooksControllerTest < ActionController::TestCase
     assert_template :edit
   end
 
+  test "should upvote" do
+    request.env['HTTP_REFERER'] = "where_i_came_from"
+      patch :upvote, id: books(:two).id
+    assert_redirected_to("where_i_came_from")
+  end
+
   test "should update existing book" do
     patch :update, id: books(:one).id, book: { title: "title", author: "authors"}
     assert_response :redirect
