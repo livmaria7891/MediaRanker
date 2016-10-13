@@ -9,6 +9,7 @@ class AlbumsController < ApplicationController
 
   def new
     @album = Album.new
+    @path = albums_path
   end
 
   def create
@@ -24,6 +25,7 @@ class AlbumsController < ApplicationController
 
   def edit
     @album = Album.find(params[:id].to_i)
+    @path = album_path
   end
 
   def update

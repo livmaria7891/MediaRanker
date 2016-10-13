@@ -9,6 +9,7 @@ class BooksController < ApplicationController
 
   def new
     @book = Book.new
+    @path = books_path
   end
 
   def create
@@ -24,6 +25,7 @@ class BooksController < ApplicationController
 
   def edit
     @book = Book.find(params[:id].to_i)
+    @path = book_path
   end
 
   def update
