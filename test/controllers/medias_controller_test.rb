@@ -7,4 +7,6 @@ class MediasControllerTest < ActionController::TestCase
     assert_template :index
   end
 
+  
+
 end

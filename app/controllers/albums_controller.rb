@@ -1,6 +1,6 @@
 class AlbumsController < ApplicationController
   def index
-    @album = Album.order(rank: :desc).limit(10)
+    @album= order_by_rank(Album.all,10)
   end
 
   def show
